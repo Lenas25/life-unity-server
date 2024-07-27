@@ -7,3 +7,5 @@ nutrition/migrations
 kanban/__pycache__
 kanban/migrations
 life_unity_server/__pycache__
+notes/migrations
+notes/__pycache__

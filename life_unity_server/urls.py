@@ -11,6 +11,7 @@ urlpatterns = [
     path('api/v1/', include('authentication.urls')),
     path('api/v1/', include('nutrition.urls')),
     path('api/v1/', include('kanban.urls')),
+    path('api/v1/', include('notes.urls'))
 ]
 
 # Configuración para servir archivos de medios durante el desarrollo
