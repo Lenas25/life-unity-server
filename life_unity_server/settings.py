@@ -50,8 +50,8 @@ INSTALLED_APPS = [
     'nutrition',
     'recipes',
     'kanban',
-    'rest_framework',
     'notes',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
