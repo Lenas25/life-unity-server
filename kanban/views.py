@@ -26,17 +26,17 @@ class SubCardViewSet(ModelViewSet):
     
         # sobreescribo para crear o actualizar un registro segun el id_user
     def create(self, request, *args, **kwargs):
-        card_id = request.data.get('id_card')
-        card = Cards.objects.filter(id=card_id).first().id
-
-        if card:
-            detail_instance = SubCard.objects.filter(id_card = card).first()
-
-            if detail_instance:
-                # Si existe, actualiza el registro existente
-                serializer = self.get_serializer(detail_instance, data=request.data, partial=True)
-                serializer.is_valid(raise_exception=True)
-                self.perform_update(serializer)
-                return Response(serializer.data, status=status.HTTP_200_OK)
-            else:
-                return super(SubCardViewSet, self).create(request, *args, **kwargs)
+        # si te entrega un id es porque si existe
+        id = request.data.get('id')
+        if id is not None:
+            return super(SubCardViewSet, self).create(request, *args, **kwargs)
+        
+        subtask = SubCard.objects.filter(id=id).first()
+        if subtask:
+            serializer = self.get_serializer(subtask, data=request.data, partial=True)
+            serializer.is_valid(raise_exception=True)
+            self.perform_update(serializer)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return super(SubCardViewSet, self).create(request, *args, **kwargs)
+        
