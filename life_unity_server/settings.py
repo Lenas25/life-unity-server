@@ -89,14 +89,14 @@ WSGI_APPLICATION = 'life_unity_server.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-#postgresql://life_unity_db_user:HcUR27ZdV6vIVOUgoiiUFNlO2GbnJqon@dpg-cqi7cp8gph6c738ksua0-a.virginia-postgres.render.com/life_unity_db
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'life_unity_db',
         'USER': os.environ.get('DB_USER'),
         'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST')
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': '5432',
     }
 }
 
@@ -150,7 +150,7 @@ REST_FRAMEWORK = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    "https://life-unity-app.vercel.app/"
+    "https://life-unity-app.vercel.app"
 ]
 
 SIMPLE_JWT = {
