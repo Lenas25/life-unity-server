@@ -1,3 +1,4 @@
+Agregar las variable de entorno adecuadas
 DB_USER=
 DB_PASSWORD=
 AWS_ACCESS_KEY= 

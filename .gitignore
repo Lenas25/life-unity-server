@@ -1,5 +1,7 @@
 venv
 .env
+authentication/__pycache__
+authentication/migrations
 recipes/__pycache__
 recipes/migrations
 nutrition/__pycache__

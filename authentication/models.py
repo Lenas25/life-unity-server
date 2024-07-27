@@ -11,6 +11,7 @@ class MediaStorage(S3Boto3Storage):
 class UserModel(AbstractUser):
   image = models.ImageField(null=True, storage=MediaStorage(), upload_to='profiles/')
   email = models.EmailField(unique=True)
+  provider = models.CharField(max_length=255, choices=[('local', 'local'), ('google', 'google')], default='local')
   is_active = models.BooleanField(default=True)
   
   class Meta:
