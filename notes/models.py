@@ -10,6 +10,8 @@ class Notes(models.Model):
     emojis = models.TextField(null=False, blank=True)
 
     user_id = models.ForeignKey(UserModel, on_delete=models.CASCADE, null=True, related_name='user_id')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'notes'
